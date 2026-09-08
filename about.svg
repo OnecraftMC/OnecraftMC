@@ -1,0 +1,241 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" width="1920" height="1080"><rect id="editor-background" x="0" y="0" width="1920" height="1080" fill="#080808"></rect>
+  <defs>
+    <!-- Filters for Glow and Depth -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"></feGaussianBlur>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"></feComposite>
+    </filter>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur"></feGaussianBlur>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.388  0 0 0 0 0.4  0 0 0 0 0.945  0 0 0 1 0"></feColorMatrix>
+      <feMerge>
+        <feMergeNode></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+    <filter id="bgBlur">
+      <feGaussianBlur stdDeviation="10"></feGaussianBlur>
+    </filter>
+
+    <!-- Gradients -->
+    <linearGradient id="panelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.1"></stop>
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0.02"></stop>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0"></stop>
+      <stop offset="50%" stop-color="#06b6d4" stop-opacity="0.8"></stop>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"></stop>
+    </linearGradient>
+    
+    <style>
+      @keyframes scanline { 0% { transform: translateY(-1080px); } 100% { transform: translateY(1080px); } }
+      @keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+      @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+      @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+      @keyframes matrix { 0% { stroke-dashoffset: 1000; } 100% { stroke-dashoffset: 0; } }
+      @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+      @keyframes slideText { 0% { transform: translateY(0); } 100% { transform: translateY(-100px); } }
+      @keyframes beam { 0% { stroke-dashoffset: 100; opacity: 0; } 50% { opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+      
+      .text-tech { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 800; fill: #fff; text-transform: uppercase; letter-spacing: 2px; }
+      .text-data { font-family: 'Courier New', monospace; fill: #6366f1; font-size: 14px; }
+      .node-label { font-family: 'Segoe UI', sans-serif; font-size: 12px; fill: #fff; font-weight: bold; }
+    </style>
+  </defs>
+
+  <!-- Background Layer -->
+  <rect width="1920" height="1080" fill="#020617" id="rect_0_225en" x="2.144" y="0"></rect>
+  
+  <!-- Matrix Rain Effect -->
+  <g stroke-width="1" stroke-dasharray="2, 20" id="g_1_225en">
+    <line x1="100" y1="0" x2="100" y2="1080" stroke="#06b6d4" opacity="0.2" id="line_2_225en">
+      <animate attributeName="stroke-dashoffset" values="1000;0" dur="10s" repeatCount="indefinite"></animate>
+    </line>
+    <line x1="400" y1="0" x2="400" y2="1080" stroke="#6366f1" opacity="0.1" id="line_3_225en">
+      <animate attributeName="stroke-dashoffset" values="800;0" dur="15s" repeatCount="indefinite"></animate>
+    </line>
+    <line x1="1500" y1="0" x2="1500" y2="1080" stroke="#d946ef" opacity="0.15" id="line_4_225en">
+      <animate attributeName="stroke-dashoffset" values="1200;0" dur="12s" repeatCount="indefinite"></animate>
+    </line>
+    <line x1="1800" y1="0" x2="1800" y2="1080" stroke="#f59e0b" opacity="0.1" id="line_5_225en">
+      <animate attributeName="stroke-dashoffset" values="600;0" dur="8s" repeatCount="indefinite"></animate>
+    </line>
+  </g>
+
+  <!-- Scanline -->
+  <rect width="1920" height="2" fill="url(#cyanGrad)" opacity="0.3" id="rect_6_225en">
+    <animateTransform attributeName="transform" type="translate" from="0,-100" to="0,1180" dur="4s" repeatCount="indefinite"></animateTransform>
+  </rect>
+
+  <!-- Top Header: AR Display -->
+  <g transform="translate(960, 100)" id="g_7_225en">
+    <path d="M-600,50 Q0,-50 600,50" fill="none" stroke="#6366f1" stroke-width="2" opacity="0.5" filter="url(#glow)" id="path_8_225en"></path>
+    <path id="headerPath" d="M-500,40 Q0,-40 500,40" fill="none"></path>
+    <text class="text-tech" font-size="42" text-anchor="middle" filter="url(#glow)" id="text_10_225en">
+      <textPath href="#headerPath" startOffset="50%">PROFILE ARCHIVE: OnecraftMC</textPath>
+    </text>
+    <!-- Decorative brackets -->
+    <path d="M-550,60 L-580,60 L-580,10" fill="none" stroke="#06b6d4" stroke-width="3" id="path_11_225en"></path>
+    <path d="M550,60 L580,60 L580,10" fill="none" stroke="#06b6d4" stroke-width="3" id="path_12_225en"></path>
+  </g>
+
+  <!-- Left Side: Data Modules -->
+  <g transform="translate(100, 250)" id="g_13_225en">
+    <!-- Timeline & Activity -->
+    <rect width="450" height="350" rx="15" fill="url(#panelGrad)" stroke="#6366f1" stroke-width="1" stroke-opacity="0.3" id="rect_14_225en" x="-16.972" y="-6.84"></rect>
+    <text x="20" y="40" class="text-tech" font-size="18" fill="#06b6d4" id="text_15_225en">TIMELINE &amp; ACTIVITY</text>
+    
+    <!-- Quantum Clock -->
+    <g transform="translate(100, 150)" id="g_16_225en">
+      <circle r="60" fill="none" stroke="#6366f1" stroke-width="1" stroke-dasharray="4,4" opacity="0.5" id="circle_17_225en">
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="20s" repeatCount="indefinite"></animateTransform>
+      </circle>
+      <circle r="50" fill="none" stroke="#06b6d4" stroke-width="2" stroke-dasharray="20,10" id="circle_18_225en">
+        <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="10s" repeatCount="indefinite"></animateTransform>
+      </circle>
+      <text y="5" text-anchor="middle" class="text-tech" font-size="14" fill="#fff" id="text_19_225en">2021</text>
+      <text y="25" text-anchor="middle" class="text-tech" font-size="10" fill="#6366f1" id="text_20_225en">ESTABLISHED</text>
+    </g>
+
+    <!-- Contributions -->
+    <g transform="translate(200, 100)" id="g_21_225en">
+      <text x="20" y="40" class="text-tech" font-size="48" fill="#fff" filter="url(#glow)" id="text_22_225en">81
+        <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"></animate>
+      </text>
+      <text x="20" y="70" class="text-tech" font-size="12" fill="#6366f1" id="text_23_225en">TOTAL CONTRIBUTIONS</text>
+      
+      <!-- Mini Bar Chart -->
+      <g transform="translate(20, 100)" id="g_24_225en">
+        <rect x="0" y="20" width="15" height="30" fill="#06b6d4" id="rect_25_225en"><animate attributeName="height" values="30;50;30" dur="2s" repeatCount="indefinite"></animate></rect>
+        <rect x="25" y="10" width="15" height="40" fill="#6366f1" id="rect_26_225en"><animate attributeName="height" values="40;20;40" dur="2.5s" repeatCount="indefinite"></animate></rect>
+        <rect x="50" y="30" width="15" height="20" fill="#d946ef" id="rect_27_225en"><animate attributeName="height" values="20;45;20" dur="1.8s" repeatCount="indefinite"></animate></rect>
+        <rect x="75" y="15" width="15" height="35" fill="#f59e0b" id="rect_28_225en"><animate attributeName="height" values="35;15;35" dur="3s" repeatCount="indefinite"></animate></rect>
+      </g>
+    </g>
+
+    <!-- System Log Module -->
+    <g transform="translate(0, 380)" id="g_29_225en">
+      <rect width="450" height="200" rx="15" fill="url(#panelGrad)" stroke="#6366f1" stroke-width="1" stroke-opacity="0.3" id="rect_30_225en"></rect>
+      <text x="20" y="40" class="text-tech" font-size="18" fill="#d946ef" id="text_31_225en">SYSTEM LOG</text>
+      <g transform="translate(20, 60)" id="g_32_225en">
+        <text class="text-data" y="20" id="text_33_225en">SYNCING_CORE_FILES...</text>
+        <text class="text-data" y="45" id="text_34_225en">ENCRYPTING_RSA_2048...</text>
+        <text class="text-data" y="70" id="text_35_225en">UPLINK_ESTABLISHED_PORT_8080</text>
+        <text class="text-data" y="95" id="text_36_225en">STATUS: <tspan fill="#22c55e">OPTIMAL</tspan></text>
+        <rect x="0" y="110" width="410" height="4" fill="#1e293b" rx="2" id="rect_37_225en"></rect>
+        <rect x="0" y="110" width="0" height="4" fill="#d946ef" rx="2" id="rect_38_225en">
+          <animate attributeName="width" values="0;410;0" dur="5s" repeatCount="indefinite"></animate>
+        </rect>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Side: Skills & Infrastructure -->
+  <g transform="translate(1000, 250)" id="g_39_225en">
+    <!-- Frontend Section -->
+    <text x="0" y="-20" class="text-tech" font-size="22" fill="#06b6d4" id="text_40_225en">FRONTEND COGNITIVE NETWORKS</text>
+    
+    <!-- Skill Nodes -->
+    <g transform="translate(0, 50)" id="g_41_225en">
+      <!-- Svelte -->
+      <g transform="translate(50, 50)" id="g_42_225en">
+        <circle r="45" fill="#0f172a" stroke="#ff3e00" stroke-width="2" filter="url(#glow)" id="circle_43_225en">
+          <animate attributeName="stroke-opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"></animate>
+        </circle>
+        <path d="M-15,-10 Q0,-25 15,-10 Q30,5 15,20 Q0,35 -15,20 Q-30,5 -15,-10" fill="none" stroke="#ff3e00" stroke-width="3" id="path_44_225en"></path>
+        <text y="65" text-anchor="middle" class="node-label" id="text_45_225en">SVELTE</text>
+      </g>
+      
+      <!-- Next.js -->
+      <g transform="translate(200, 80)" id="g_46_225en">
+        <circle r="45" fill="#0f172a" stroke="#fff" stroke-width="2" id="circle_47_225en"></circle>
+        <text y="10" text-anchor="middle" class="text-tech" font-size="30" id="text_48_225en">N</text>
+        <text y="65" text-anchor="middle" class="node-label" id="text_49_225en">NEXT.JS</text>
+        <animateTransform attributeName="transform" type="translate" values="200,80; 200,70; 200,80" dur="4s" repeatCount="indefinite"></animateTransform>
+      </g>
+
+      <!-- TypeScript -->
+      <g transform="translate(350, 50)" id="g_50_225en">
+        <rect x="-40" y="-40" width="80" height="80" rx="10" fill="#3178c6" id="rect_51_225en"></rect>
+        <text y="15" text-anchor="middle" class="text-tech" font-size="30" id="text_52_225en">TS</text>
+        <text y="65" text-anchor="middle" class="node-label" id="text_53_225en">TYPESCRIPT</text>
+      </g>
+
+      <!-- Tailwind -->
+      <g transform="translate(120, 200)" id="g_54_225en">
+        <path d="M-30,0 Q-15,-20 0,0 Q15,20 30,0" fill="none" stroke="#38bdf8" stroke-width="4" filter="url(#glow)" id="path_55_225en">
+          <animate attributeName="d" values="M-30,0 Q-15,-20 0,0 Q15,20 30,0; M-30,0 Q-15,20 0,0 Q15,-20 30,0; M-30,0 Q-15,-20 0,0 Q15,20 30,0" dur="3s" repeatCount="indefinite"></animate>
+        </path>
+        <text y="40" text-anchor="middle" class="node-label" id="text_56_225en">TAILWIND</text>
+      </g>
+
+      <!-- JavaScript -->
+      <g transform="translate(280, 200)" id="g_57_225en">
+        <path d="M-25,-10 A15,15 0 1,1 25,10 A15,15 0 1,1 -25,-10" fill="none" stroke="#f7df1e" stroke-width="3" id="path_58_225en">
+          <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="5s" repeatCount="indefinite"></animateTransform>
+        </path>
+        <text y="40" text-anchor="middle" class="node-label" id="text_59_225en">JAVASCRIPT</text>
+      </g>
+
+      <!-- Connecting Beams -->
+      <path d="M95,50 L155,80 M245,80 L310,50 M120,160 L100,95 M280,160 L245,125" stroke="#6366f1" stroke-width="1" opacity="0.4" stroke-dasharray="5,5" id="path_60_225en"></path>
+    </g>
+
+    <!-- Backend Infrastructure -->
+    <g transform="translate(0, 400)" id="g_61_225en">
+      <text x="0" y="0" class="text-tech" font-size="22" fill="#f59e0b" id="text_62_225en">BACKEND INFRASTRUCTURE CORE</text>
+      
+      <!-- Server Rack Cluster -->
+      <g transform="translate(0, 40)" id="g_63_225en">
+        <rect width="400" height="180" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.5" id="rect_64_225en"></rect>
+        
+        <!-- Rack Units -->
+        <g transform="translate(20, 30)" id="g_65_225en">
+          <!-- PHP Node -->
+          <rect width="100" height="40" rx="5" fill="#4f5b93" opacity="0.8" id="rect_66_225en"></rect>
+          <text x="50" y="25" text-anchor="middle" class="node-label" id="text_67_225en">PHP</text>
+          <circle cx="10" cy="20" r="3" fill="#fff" id="circle_68_225en"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"></animate></circle>
+          
+          <!-- MySQL Node -->
+          <rect x="130" width="100" height="40" rx="5" fill="#00758f" opacity="0.8" id="rect_69_225en"></rect>
+          <text x="180" y="25" text-anchor="middle" class="node-label" id="text_70_225en">MySQL</text>
+          <path d="M140,10 L140,30" stroke="#fff" stroke-width="2" opacity="0.5" id="path_71_225en"></path>
+
+          <!-- Supabase Node -->
+          <rect x="260" width="100" height="40" rx="5" fill="#3ecf8e" opacity="0.8" id="rect_72_225en"></rect>
+          <text x="310" y="25" text-anchor="middle" class="node-label" id="text_73_225en">SUPABASE</text>
+          <path d="M270,20 L280,10 L280,30 L290,20" fill="none" stroke="#fff" stroke-width="2" id="path_74_225en"></path>
+        </g>
+
+        <!-- Circuit Lines -->
+        <g stroke="#f59e0b" stroke-width="1" opacity="0.3" fill="none" id="g_75_225en">
+          <path d="M70,70 V120 H330 V70" id="path_76_225en"></path>
+          <circle cx="200" cy="120" r="15" stroke-width="2" id="circle_77_225en"></circle>
+          <circle cx="200" cy="120" r="5" fill="#f59e0b" id="circle_78_225en">
+            <animate attributeName="r" values="3;7;3" dur="2s" repeatCount="indefinite"></animate>
+          </circle>
+        </g>
+        
+        <text x="200" y="160" text-anchor="middle" class="text-tech" font-size="10" fill="#f59e0b" id="text_79_225en">CENTRAL PROCESSING HUB</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Floating Particles -->
+  <g id="g_80_225en">
+    <circle r="2" fill="#fff" opacity="0.5" id="circle_81_225en">
+      <animateTransform attributeName="transform" type="translate" values="100,100; 1800,900" dur="20s" repeatCount="indefinite"></animateTransform>
+    </circle>
+    <circle r="1.5" fill="#06b6d4" opacity="0.8" id="circle_82_225en">
+      <animateTransform attributeName="transform" type="translate" values="1800,100; 100,900" dur="25s" repeatCount="indefinite"></animateTransform>
+    </circle>
+    <circle r="2.5" fill="#d946ef" opacity="0.6" id="circle_83_225en">
+      <animateTransform attributeName="transform" type="translate" values="500,1000; 1400,50" dur="18s" repeatCount="indefinite"></animateTransform>
+    </circle>
+  </g>
+
+  <!-- Foreground Vignette/Overlay -->
+  <rect width="1920" height="1080" fill="none" stroke="#6366f1" stroke-width="40" opacity="0.05" id="rect_84_225en"></rect>
+  <rect width="1920" height="1080" fill="none" stroke="#000" stroke-width="2" opacity="0.2" id="rect_85_225en"></rect>
+</svg>
