@@ -1,1 +1,1 @@
-<img src="profile.svg" alt="OnecraftMC's profile" width="100%">
+<img src="about.svg" alt="OnecraftMC's profile" width="75%">
