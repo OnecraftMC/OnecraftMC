@@ -1,0 +1,262 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" width="1920" height="1080">
+  <defs>
+    <!-- Glow Filters -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="heavyGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.388  0 0 0 0 0.4  0 0 0 0 0.945  0 0 0 1 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="blurCity">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+
+    <!-- Gradients -->
+    <linearGradient id="panelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#0f0f1a;stop-opacity:0.95"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#a855f7"/>
+    </linearGradient>
+    <linearGradient id="magentaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f43f5e"/>
+      <stop offset="100%" style="stop-color:#9f1239"/>
+    </linearGradient>
+
+    <!-- Patterns -->
+    <pattern id="scanlines" width="1920" height="4" patternUnits="userSpaceOnUse">
+      <rect width="1920" height="2" fill="#000" fill-opacity="0.2" id="rect_0_1qlbe"/>
+    </pattern>
+    
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#6366f1" stroke-width="0.5" stroke-opacity="0.2" id="path_1_1qlbe"/>
+    </pattern>
+
+    <!-- Animations -->
+    <keyframes id="flicker">
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+      52% { opacity: 1; }
+      54% { opacity: 0.7; }
+      56% { opacity: 1; }
+    </keyframes>
+  </defs>
+
+  <!-- Background Layer -->
+  <rect width="1920" height="1080" fill="#050505" id="rect_2_1qlbe"/>
+  
+  <!-- Blurred Cityscape -->
+  <g filter="url(#blurCity)" opacity="0.4" id="g_3_1qlbe">
+    <rect x="200" y="400" width="100" height="600" fill="#1e1b4b" id="rect_4_1qlbe"/>
+    <rect x="400" y="200" width="150" height="800" fill="#312e81" id="rect_5_1qlbe"/>
+    <rect x="1200" y="300" width="120" height="700" fill="#1e1b4b" id="rect_6_1qlbe"/>
+    <rect x="1500" y="100" width="200" height="900" fill="#312e81" id="rect_7_1qlbe"/>
+    <!-- Neon Windows in City -->
+    <rect x="420" y="250" width="20" height="20" fill="#6366f1" id="rect_8_1qlbe">
+      <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="1550" y="150" width="30" height="10" fill="#f43f5e" id="rect_9_1qlbe">
+      <animate attributeName="opacity" values="1;0.2;1" dur="2s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- Matrix Rain Effect -->
+  <g opacity="0.15" id="g_10_1qlbe">
+    <script type="text/ecmascript">
+      <![CDATA[
+        // Note: In pure SVG we use multiple animated circles/rects to simulate rain
+      ]]>
+    </script>
+    <rect x="100" y="0" width="2" height="100" fill="#6366f1" id="rect_11_1qlbe">
+      <animate attributeName="y" from="-100" to="1080" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="400" y="0" width="2" height="150" fill="#a855f7" id="rect_12_1qlbe">
+      <animate attributeName="y" from="-150" to="1080" dur="6s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="800" y="0" width="2" height="80" fill="#6366f1" id="rect_13_1qlbe">
+      <animate attributeName="y" from="-80" to="1080" dur="3s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="1300" y="0" width="2" height="120" fill="#06b6d4" id="rect_14_1qlbe">
+      <animate attributeName="y" from="-120" to="1080" dur="5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="1700" y="0" width="2" height="200" fill="#6366f1" id="rect_15_1qlbe">
+      <animate attributeName="y" from="-200" to="1080" dur="7s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- Main Console Frame -->
+  <rect x="160" y="90" width="1600" height="900" rx="20" fill="url(#panelGrad)" stroke="#6366f1" stroke-width="2" filter="url(#glow)" id="rect_16_1qlbe"/>
+  <rect x="160" y="90" width="1600" height="900" rx="20" fill="url(#grid)" id="rect_17_1qlbe"/>
+
+  <!-- Header Section -->
+  <g transform="translate(160, 90)" id="g_18_1qlbe">
+    <path d="M 0 60 L 1600 60" stroke="#6366f1" stroke-width="1" opacity="0.5" id="path_19_1qlbe"/>
+    <text x="800" y="45" font-family="monospace" font-size="32" fill="#6366f1" text-anchor="middle" filter="url(#heavyGlow)" font-weight="bold" id="text_20_1qlbe">
+      PROFILE: OnecraftMC
+      <animate attributeName="opacity" values="1;0.8;1;0.9;1" dur="0.2s" repeatCount="indefinite"/>
+    </text>
+    <rect x="700" y="55" width="200" height="3" fill="#6366f1" filter="url(#glow)" id="rect_21_1qlbe"/>
+  </g>
+
+  <!-- Left Modules: Stats -->
+  <g transform="translate(220, 200)" id="g_22_1qlbe">
+    <!-- Active Since -->
+    <rect width="400" height="150" rx="10" fill="#000" fill-opacity="0.4" stroke="#6366f1" stroke-width="1" id="rect_23_1qlbe"/>
+    <text x="20" y="40" font-family="monospace" font-size="18" fill="#a855f7" id="text_24_1qlbe">ACTIVE SINCE: 2021</text>
+    <path d="M 20 100 Q 100 50 200 100 T 380 100" fill="none" stroke="#6366f1" stroke-width="2" filter="url(#glow)" id="path_25_1qlbe">
+      <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="4s" repeatCount="indefinite"/>
+    </path>
+    <!-- Floating Particles -->
+    <circle r="2" fill="#6366f1" id="circle_26_1qlbe">
+      <animateMotion path="M 20 100 Q 100 50 200 100 T 380 100" dur="3s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Contributions -->
+    <g transform="translate(0, 180)" id="g_27_1qlbe">
+      <rect width="400" height="150" rx="10" fill="#000" fill-opacity="0.4" stroke="#f43f5e" stroke-width="1" id="rect_28_1qlbe"/>
+      <text x="20" y="40" font-family="monospace" font-size="18" fill="#f43f5e" id="text_29_1qlbe">81 TOTAL CONTRIBUTIONS</text>
+      <rect x="50" y="70" width="300" height="40" rx="5" fill="#111" stroke="#f43f5e" stroke-opacity="0.3" id="rect_30_1qlbe"/>
+      <!-- Flowing Numbers -->
+      <g clip-path="inset(0 0 0 0)" id="g_31_1qlbe">
+        <text x="60" y="98" font-family="monospace" font-size="24" fill="#f43f5e" filter="url(#glow)" id="text_32_1qlbe">
+          81
+          <animate attributeName="opacity" values="0.5;1;0.5" dur="1s" repeatCount="indefinite"/>
+        </text>
+        <circle cx="330" cy="90" r="4" fill="#f43f5e" id="circle_33_1qlbe">
+          <animate attributeName="cx" from="330" to="80" dur="2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="310" cy="90" r="3" fill="#f43f5e" id="circle_34_1qlbe">
+          <animate attributeName="cx" from="310" to="100" dur="1.5s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Section: Top Technologies -->
+  <g transform="translate(700, 200)" id="g_35_1qlbe">
+    <text x="0" y="-20" font-family="monospace" font-size="24" fill="#6366f1" font-weight="bold" id="text_36_1qlbe">TOP TECHNOLOGIES</text>
+    
+    <!-- Frontend Cluster -->
+    <g transform="translate(0, 20)" id="g_37_1qlbe">
+      <rect width="950" height="320" rx="15" fill="#000" fill-opacity="0.3" stroke="#6366f1" stroke-dasharray="10 5" id="rect_38_1qlbe"/>
+      <text x="20" y="35" font-family="monospace" font-size="20" fill="#06b6d4" id="text_39_1qlbe">FRONTEND_STACK</text>
+      
+      <!-- Tech Icons (Abstracted) -->
+      <!-- Svelte -->
+      <g transform="translate(80, 150)" id="g_40_1qlbe">
+        <path d="M-30,-40 L30,-40 L40,-20 L-40,-20 Z" fill="#ff3e00" opacity="0.8" id="path_41_1qlbe">
+          <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0" dur="3s" repeatCount="indefinite"/>
+        </path>
+        <text y="40" font-family="monospace" font-size="14" fill="#fff" text-anchor="middle" id="text_42_1qlbe">Svelte</text>
+      </g>
+      
+      <!-- Next.js -->
+      <g transform="translate(250, 150)" id="g_43_1qlbe">
+        <circle r="35" fill="none" stroke="#fff" stroke-width="2" id="circle_44_1qlbe"/>
+        <path d="M-15,15 L15,-15 M5,15 L5,-15" stroke="#fff" stroke-width="3" id="path_45_1qlbe"/>
+        <text y="60" font-family="monospace" font-size="14" fill="#fff" text-anchor="middle" id="text_46_1qlbe">Next.js</text>
+        <animateTransform attributeName="transform" type="rotate" from="0 250 150" to="360 250 150" dur="20s" repeatCount="indefinite"/>
+      </g>
+
+      <!-- TypeScript -->
+      <g transform="translate(420, 150)" id="g_47_1qlbe">
+        <rect x="-30" y="-30" width="60" height="60" fill="#3178c6" id="rect_48_1qlbe"/>
+        <text x="10" y="20" font-family="Arial" font-size="24" fill="#fff" font-weight="bold" text-anchor="middle" id="text_49_1qlbe">TS</text>
+        <text y="50" font-family="monospace" font-size="14" fill="#fff" text-anchor="middle" id="text_50_1qlbe">TypeScript</text>
+        <animate attributeName="opacity" values="1;0.6;1" dur="4s" repeatCount="indefinite"/>
+      </g>
+
+      <!-- Tailwind -->
+      <g transform="translate(590, 150)" id="g_51_1qlbe">
+        <path d="M-30,0 Q-15,-20 0,0 T30,0" fill="none" stroke="#06b6d4" stroke-width="4" id="path_52_1qlbe"/>
+        <path d="M-30,10 Q-15,-10 0,10 T30,10" fill="none" stroke="#06b6d4" stroke-width="4" opacity="0.5" id="path_53_1qlbe"/>
+        <text y="50" font-family="monospace" font-size="14" fill="#fff" text-anchor="middle" id="text_54_1qlbe">Tailwind</text>
+      </g>
+
+      <!-- JS -->
+      <g transform="translate(760, 150)" id="g_55_1qlbe">
+        <rect x="-30" y="-30" width="60" height="60" fill="#f7df1e" id="rect_56_1qlbe"/>
+        <text x="10" y="20" font-family="Arial" font-size="24" fill="#000" font-weight="bold" text-anchor="middle" id="text_57_1qlbe">JS</text>
+        <text y="50" font-family="monospace" font-size="14" fill="#fff" text-anchor="middle" id="text_58_1qlbe">JavaScript</text>
+      </g>
+
+      <!-- Connecting Circuits -->
+      <path d="M 120 150 L 210 150 M 290 150 L 380 150 M 460 150 L 550 150 M 630 150 L 720 150" stroke="#6366f1" stroke-width="1" stroke-dasharray="5 5" id="path_59_1qlbe">
+        <animate attributeName="stroke-dashoffset" from="0" to="50" dur="2s" repeatCount="indefinite"/>
+      </path>
+    </g>
+
+    <!-- Backend Cluster -->
+    <g transform="translate(0, 370)" id="g_60_1qlbe">
+      <rect width="950" height="320" rx="15" fill="#000" fill-opacity="0.3" stroke="#a855f7" stroke-dasharray="10 5" id="rect_61_1qlbe"/>
+      <text x="20" y="35" font-family="monospace" font-size="20" fill="#a855f7" id="text_62_1qlbe">BACKEND_INFRA</text>
+
+      <!-- PHP -->
+      <g transform="translate(150, 160)" id="g_63_1qlbe">
+        <ellipse cx="0" cy="0" rx="50" ry="30" fill="#777bb4" id="ellipse_64_1qlbe"/>
+        <text y="7" font-family="serif" font-size="20" fill="#fff" text-anchor="middle" font-weight="bold" id="text_65_1qlbe">PHP</text>
+        <text y="50" font-family="monospace" font-size="14" fill="#fff" text-anchor="middle" id="text_66_1qlbe">PHP</text>
+      </g>
+
+      <!-- MySQL -->
+      <g transform="translate(450, 160)" id="g_67_1qlbe">
+        <path d="M-30,20 L0,-30 L30,20 Z" fill="#00758f" id="path_68_1qlbe"/>
+        <circle cx="0" cy="-10" r="10" fill="#f29111" id="circle_69_1qlbe"/>
+        <text y="50" font-family="monospace" font-size="14" fill="#fff" text-anchor="middle" id="text_70_1qlbe">MySQL</text>
+        <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="3s" repeatCount="indefinite"/>
+      </g>
+
+      <!-- Supabase -->
+      <g transform="translate(750, 160)" id="g_71_1qlbe">
+        <path d="M-20,30 L20,-30 L0,-5 L20,-5 L-20,30" fill="#3ecf8e" filter="url(#glow)" id="path_72_1qlbe"/>
+        <text y="50" font-family="monospace" font-size="14" fill="#fff" text-anchor="middle" id="text_73_1qlbe">Supabase</text>
+      </g>
+
+      <!-- Data Streams -->
+      <g opacity="0.3" id="g_74_1qlbe">
+        <rect x="150" y="220" width="600" height="2" fill="url(#accentGrad)" id="rect_75_1qlbe">
+          <animate attributeName="width" values="0;600;0" dur="4s" repeatCount="indefinite"/>
+        </rect>
+      </g>
+    </g>
+  </g>
+
+  <!-- Floating UI Elements -->
+  <g filter="url(#glow)" id="g_76_1qlbe">
+    <circle cx="1700" cy="150" r="40" fill="none" stroke="#6366f1" stroke-width="2" stroke-dasharray="10 10" id="circle_77_1qlbe">
+      <animateTransform attributeName="transform" type="rotate" from="0 1700 150" to="360 1700 150" dur="10s" repeatCount="indefinite"/>
+    </circle>
+    <rect x="1680" y="130" width="40" height="40" fill="none" stroke="#a855f7" stroke-width="1" id="rect_78_1qlbe">
+      <animateTransform attributeName="transform" type="rotate" from="360 1700 150" to="0 1700 150" dur="5s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- Scanline Overlay -->
+  <rect width="1920" height="1080" fill="url(#scanlines)" pointer-events="none" id="rect_79_1qlbe"/>
+  
+  <!-- Vignette and CRT Flicker -->
+  <rect width="1920" height="1080" fill="none" stroke="#000" stroke-width="200" opacity="0.3" id="rect_80_1qlbe"/>
+  <rect width="1920" height="1080" fill="#6366f1" opacity="0.02" id="rect_81_1qlbe">
+    <animate attributeName="opacity" values="0.02;0.05;0.02" dur="0.1s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Bottom Status Bar -->
+  <g transform="translate(160, 950)" id="g_82_1qlbe">
+    <text x="20" y="20" font-family="monospace" font-size="14" fill="#6366f1" id="text_83_1qlbe">SYSTEM_STATUS: OPTIMAL</text>
+    <text x="1580" y="20" font-family="monospace" font-size="14" fill="#6366f1" text-anchor="end" id="text_84_1qlbe">LOC: 127.0.0.1</text>
+    <rect x="180" y="12" width="1200" height="4" fill="#111" id="rect_85_1qlbe"/>
+    <rect x="180" y="12" width="400" height="4" fill="#6366f1" id="rect_86_1qlbe">
+      <animate attributeName="width" values="100;1100;100" dur="15s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>
