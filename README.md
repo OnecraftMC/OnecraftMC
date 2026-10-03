@@ -1,5 +1,6 @@
 # 💫 About Me:
-i am currently working on a project for a national-level competition.<br>Attended Vocational High School 24<br>Active on GitHub since 2021<br>contribute to several projects<br>I like coding :>
+i am currently working on a project for a national-level competition.<br>Attended Vocational High School 24<br>Active on GitHub since 2021
+
 ![](https://github-readme-stats.shion.dev/api?username=OnecraftMC&theme=radical&hide_border=false&include_all_commits=true&count_private=true)<br/>
 
 ## 🌐 Socials:
